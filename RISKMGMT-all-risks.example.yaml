@@ -1,0 +1,65 @@
+# This section defines all your connection details using a token.
+# At least the domain is required. Username and API token can also be entered when executing the script.
+Connection:
+    #Domain: https://[your name].atlassian.net
+    #Username:
+    #API Token:
+
+# This section defines what you are searching for.
+# You must at least define one project key or a filter. If the project key is defined, the filter will be ignored.
+Search Criteria:
+    # Specify a list of projects instead of using a filter.
+    # If this is activeated (not commented out), the filter will be ignored.
+    Projects:
+        - RISKMGMT
+    # Restrict the search result to the given issue types.
+    # This might be useful when not using a dedicated filter.
+    Issue Types:
+        - Risk
+    # Exclude issues created before the following date
+    #Exclude Created Date: 2022-02-02
+    # Exclude issues resolved before the following datee
+    #Exclude Resolved Date: 2022-02-02
+    # The following filter will be applied.
+    #Filter: Example Filter
+    # Define the maximum amount of returned search results
+    Max Results: 100
+
+# Describe the workflow. Each step can be mapped to either a single JIRA
+# status, or a list of statuses that will be treated as equivalent
+#Workflow:
+#    to-do:
+#        - To Do
+#    in-progress:
+#        - In Progress
+#    done:
+#        - Done
+
+# Define which default fields should the export contain
+Default Issue Fields:
+    Reporter: !!bool Yes
+    Assignee: !!bool Yes
+    Summary: !!bool Yes
+    Status: !!bool Yes
+    Resolution: !!bool Yes
+    Priority: !!bool Yes
+    Created: !!bool Yes
+    Resolved: !!bool Yes
+    Flagged: !!bool Yes
+    Labels: !!bool Yes
+
+# Map field names to additional attributes to extract
+Custom Issue Fields:
+    impact: customfield_10004 # Change this in accordance to the id inside your Jira instance
+    likelihood: customfield_10040 # Change this in accordance to the id inside your Jira instance
+
+# Mandatory things to define
+Additional Mandatory:
+    Flagged Field ID: customfield_10021 # Make sure that this is the correct id for the custom field 'Flagged'
+
+# Additional settings
+Misc:
+    Status Category Prefix: "category::" # Recommended to avoid confusion whith other fields
+    Custom Field Prefix: "field::" # Recommended to avoid confusion with other fields
+    Decimal Separator: Comma # Choose between 'Comma' and 'Point'
+    Time Zone: Europe/Berlin # Not used yet 
