@@ -1,7 +1,7 @@
 # This section defines all your connection details using a token.
 # At least the domain is required. Username and API token can also be entered when executing the script.
 Connection:
-    #Domain: https://[your name].atlassian.net
+    #Domain:
     #Username:
     #API Token:
 
@@ -10,56 +10,69 @@ Connection:
 Search Criteria:
     # Specify a list of projects instead of using a filter.
     # If this is activeated (not commented out), the filter will be ignored.
-    Projects:
-        - RISKMGMT
+    #Projects:
+    #    - DRINKS
+    #    - GAMING
     # Restrict the search result to the given issue types.
     # This might be useful when not using a dedicated filter.
-    Issue Types:
-        - Risk
-    # Exclude issues created before the following date
-    #Exclude Created Date: 2022-02-02
-    # Exclude issues resolved before the following datee
-    #Exclude Resolved Date: 2022-02-02
+    #Issue Types:
+    #    - Whisky
+    #    - Rum
+    #    - Mezcal
+    #    - Liquer
+    #    - Schnaps
     # The following filter will be applied.
-    #Filter: Example Filter
+    Filter: DRINKS All Issues
+    # Exclude issues created before the following date
+    #Exclude Created Date: 2022-01-01
+    # Exclude issues resolved before the following datee
+    #Exclude Resolved Date: 2023-01-01
     # Define the maximum amount of returned search results
-    Max Results: 100
+    Max Results: 200
 
-# Mandatory things to define
+# Mandatory properties to define
 Mandatory:
     Flagged Field ID: customfield_10021 # Make sure that this is the correct id for the custom field 'Flagged'
     Decimal Separator: Comma # Choose between 'Comma' and 'Point'
 
-# Describe the workflow. Each step can be mapped to either a single JIRA
-# status, or a list of statuses that will be treated as equivalent
-#Workflow:
-#    to-do:
-#        - To Do
-#    in-progress:
-#        - In Progress
-#    done:
-#        - Done
-
 # Define which default fields should the export contain
 Standard Issue Fields:
     Type: !!bool Yes
-    Reporter: !!bool Yes
-    Assignee: !!bool Yes
+    Reporter: !!bool No
+    Assignee: !!bool No
     Summary: !!bool Yes
     Status: !!bool Yes
     Resolution: !!bool Yes
-    Priority: !!bool Yes
+    Priority: !!bool No
     Created: !!bool Yes
-    Updated: !!bool No
+    Updated: !!bool Yes
     Resolved: !!bool Yes
-    Parent: !!bool No
+    Parent: !!bool False
     Flagged: !!bool Yes
     Labels: !!bool Yes
 
 # Map field names to additional attributes to extract
 Custom Issue Fields:
-    impact: customfield_10004 # Change this in accordance to the id inside your Jira instance
-    likelihood: customfield_10040 # Change this in accordance to the id inside your Jira instance
+    bottle-size: customfield_10055
+    volume-percent-alcohol: customfield_10054
+    price: customfield_10057
+    nps: customfield_10056
+
+# Describe the workflow. Each category can be mapped to either a single
+# JIRA status or a list of statuses that will be treated as equivalent.
+Workflow:
+    backlog:
+        - Backlog
+        - Interested
+    committed:
+        - Ordered
+        - In Stock
+    opened:
+        - Opened
+        - In Progress
+    done:
+        - Done
+        - Archived
 
 # Additional settings
 Misc:
