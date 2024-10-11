@@ -15,6 +15,6 @@ Article: [Easy Risk Management with Jira, Confluence, and Excel](https://medium.
 
 ## Misc
 The resources inside this repository are maintained by [Boris Karl Schlein](https://github.com/bks07).
-You can also find me on [LinkedIn](https://www.linkedin.com/in/boriskarlschlein/)
+You can also find me on [LinkedIn](https://www.linkedin.com/in/boriskarlschlein/).
 
 If you are interested, find all my Medium articles [here](https://medium.com/@boris-karl-schlein).
